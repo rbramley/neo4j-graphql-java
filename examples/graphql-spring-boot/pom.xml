@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-graphql-java-examples</artifactId>
-        <version>1.2.1</version>
+        <version>1.2.1-rup</version>
     </parent>
 
     <groupId>org.neo4j.graphql.examples</groupId>

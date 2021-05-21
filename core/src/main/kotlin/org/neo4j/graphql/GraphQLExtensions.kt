@@ -39,6 +39,7 @@ fun GraphQLType.requiredName(): String = requireNotNull(name()) { "name is requi
 fun GraphQLType.isList() = this is GraphQLList || (this is GraphQLNonNull && this.wrappedType is GraphQLList)
 fun GraphQLType.isScalar() = this.inner().let { it is GraphQLScalarType || it.innerName().startsWith("_Neo4j") }
 fun GraphQLType.isNeo4jType() = this.innerName().startsWith("_Neo4j")
+fun GraphQLType.isNeo4jDateType() = this.innerName().startsWith("_Neo4j") && (this.innerName().contains("Date") || this.innerName().contains("Time"))
 fun GraphQLType.isNeo4jSpatialType() = this.innerName().startsWith("_Neo4jPoint")
 fun GraphQLFieldDefinition.isNeo4jType(): Boolean = this.type.isNeo4jType()
 

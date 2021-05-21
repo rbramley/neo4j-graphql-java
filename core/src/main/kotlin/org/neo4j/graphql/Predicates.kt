@@ -113,6 +113,7 @@ enum class FieldOperator(
                     type == Scalars.GraphQLBoolean -> listOf(EQ, NEQ)
                     type.innerName() == NEO4j_POINT_DISTANCE_FILTER -> listOf(EQ, LT, LTE, GT, GTE)
                     type.isNeo4jSpatialType() -> listOf(EQ, NEQ)
+                    type.isNeo4jDateType() -> listOf(EQ, NEQ, IN, NIN, LT, LTE, GT, GTE)
                     type.isNeo4jType() -> listOf(EQ, NEQ, IN, NIN)
                     type is GraphQLFieldsContainer || type is GraphQLInputObjectType -> throw IllegalArgumentException("This operators are not for relations, use the RelationOperator instead")
                     type is GraphQLEnumType -> listOf(EQ, NEQ, IN, NIN)

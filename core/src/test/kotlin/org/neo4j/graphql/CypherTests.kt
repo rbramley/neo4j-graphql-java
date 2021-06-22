@@ -10,7 +10,7 @@ import org.junit.jupiter.api.TestInstance
 import org.neo4j.graphql.utils.CypherTestSuite
 import org.neo4j.harness.Neo4j
 import org.neo4j.harness.Neo4jBuilders
-import java.nio.file.Path
+import java.io.File
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class CypherTests {
@@ -21,7 +21,7 @@ class CypherTests {
     fun setup() {
         if (INTEGRATION_TESTS) {
             neo4j = Neo4jBuilders
-                .newInProcessBuilder(Path.of("target/test-db"))
+                .newInProcessBuilder(File("target/test-db"))
                 .withProcedure(apoc.cypher.Cypher::class.java)
                 .withFunction(CypherFunctions::class.java)
                 .withProcedure(Coll::class.java)
